@@ -1,11 +1,6 @@
-import { useEffect } from 'react'
-import blockchainDemo from '../blockchainDemo'
-import styles from '../styles/components/ExperienceBar.module.css'
+import styles from '../styles/components/Blockchain.module.css'
 
-export const ExperienceBar = () => {
-  useEffect(() => {
-    blockchainDemo()
-  }, [])
+export const Blockchain = () => {
   return (
     <header className={styles.experienceBar}>
       <span>0 xp</span>

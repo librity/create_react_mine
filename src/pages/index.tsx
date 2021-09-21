@@ -1,21 +1,30 @@
-import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 
 import styles from '../styles/pages/Home.module.css'
 
-import { ExperienceBar } from '../components/ExperienceBar'
+import { CurrentBlock } from '../components/CurrentBlock'
+import { Blockchain } from '../components/Blockchain'
+import { useEffect } from 'react'
+import blockchainDemo from '../blockchainDemo'
 
 const Home = () => {
+  useEffect(() => {
+    blockchainDemo()
+  }, [])
+
   return (
     <div className={styles.container}>
       <Head>
         <title>Inicio | Move.it</title>
       </Head>
 
-      <ExperienceBar />
+      <section>
+        <CurrentBlock />
+      </section>
 
-      <section></section>
-      <section></section>
+      <section>
+        <Blockchain />
+      </section>
     </div>
   )
 }
