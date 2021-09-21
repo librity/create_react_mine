@@ -65,5 +65,11 @@ Add notes about how to use the system.
 
 ## Resources <a name = "resources"></a>
 
+### Javascript
+
 - https://josipmisko.com/posts/how-to-update-npm-packages-in-4-easy-steps
 - https://muffinman.io/blog/nvm-updating-npm/
+
+### Bitcoin
+
+- https://en.bitcoin.it/wiki/Block_hashing_algorithm
