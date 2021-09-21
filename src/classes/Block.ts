@@ -1,6 +1,7 @@
-import CryptoJS from 'crypto-js'
 import Crypto from '../utils/Crypto'
 import BlockHeader from './BlockHeader'
+
+const BASE_DIFFICULTY = 2
 
 export default class Block {
   public header: BlockHeader
@@ -8,12 +9,13 @@ export default class Block {
   public hash: string
   public data: string
 
-  static buildGenesis = (difficulty: number): Block => {
+  static buildGenesis = (): Block => {
     const index = 0
     const previousHash = ''
     const data = 'GENESIS BLOCK'
 
-    const genesis = new Block(index, previousHash, data, difficulty)
+    const genesis = new Block(index, previousHash, data, BASE_DIFFICULTY)
+    genesis.mine()
     return genesis
   }
 
@@ -27,6 +29,7 @@ export default class Block {
     this.data = data
 
     this.header = new BlockHeader(previousHash, this.hashData(), difficulty)
+    this.setHash()
   }
 
   hashHeader = (): string => this.header.hash()
@@ -52,28 +55,33 @@ export default class Block {
       data,
       this.getDifficulty(),
     )
-    nextBlock.setHash()
     return nextBlock
   }
 
-  satisfiesDifficulty = (difficulty: number): boolean => {
-    const headerHash = this.hashHeader()
-    if (this.hash !== headerHash) return false
-    if (this.getDifficulty() !== difficulty) return false
+  mine = () => {
+    while (true) {
+      if (this.satisfiesDifficulty()) break
 
+      this.header.increaseNonce()
+      this.setHash()
+    }
+  }
+
+  satisfiesDifficulty = (): boolean => {
+    const difficulty = this.getDifficulty()
     const expectedZeroes = '0'.repeat(difficulty)
-    const successfullyMined = !headerHash.startsWith(expectedZeroes)
+    const successfullyMined = this.hash.startsWith(expectedZeroes)
     if (!successfullyMined) return false
 
     return true
   }
 
-  isValid = (previous: Block, difficulty: number): boolean => {
+  isValid = (previous: Block): boolean => {
     if (previous.index + 1 !== this.index) return false
-    if (previous.getDataHash() !== this.hashData()) return false
+    if (this.getDataHash() !== this.hashData()) return false
     if (previous.hash !== this.getPreviousHash()) return false
     if (this.hash !== this.hashHeader()) return false
-    if (!this.satisfiesDifficulty(difficulty)) return false
+    if (!this.satisfiesDifficulty()) return false
 
     return true
   }

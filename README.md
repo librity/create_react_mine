@@ -77,6 +77,8 @@ Add notes about how to use the system.
 
 - https://www.w3docs.com/snippets/javascript/how-to-convert-object-to-string.html
 - https://stackoverflow.com/questions/8353272/private-vs-protected-visibility-good-practice-concern
+- https://stackoverflow.com/questions/32647215/declaring-static-constants-in-es6-classes
+- https://stackoverflow.com/questions/34112577/javascript-for-loop-how-to-make-it-repeat-forever
 
 ### Bitcoin
 
