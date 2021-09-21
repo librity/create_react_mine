@@ -65,10 +65,15 @@ Add notes about how to use the system.
 
 ## Resources <a name = "resources"></a>
 
-### Javascript
+### NPM
 
 - https://josipmisko.com/posts/how-to-update-npm-packages-in-4-easy-steps
 - https://muffinman.io/blog/nvm-updating-npm/
+
+### Javascript
+
+- https://www.w3docs.com/snippets/javascript/how-to-convert-object-to-string.html
+- https://stackoverflow.com/questions/8353272/private-vs-protected-visibility-good-practice-concern
 
 ### Bitcoin
 

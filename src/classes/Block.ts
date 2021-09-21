@@ -1,25 +1,19 @@
-import * as CryptoJS from 'crypto-js';
+import CryptoJS from 'crypto-js';
+import Crypto from '../utils/Crypto';
+import BlockHeader from './BlockHeader';
 
 export default class Block {
+  public header: BlockHeader;
   public index: number;
   public hash: string;
-  public previousHash: string;
   public data: string;
-  public timestamp: number;
-  public nOnce = 0;
 
-  private static genesisSecret = CryptoJS.SHA256('YOUR SECRET HERE').toString();
-
-  static newTimestamp = (): number => Math.round(new Date().getTime() / 1000);
-
-  static buildGenesis = (): Block => {
+  static buildGenesis = (difficulty: number): Block => {
     const index = 0;
-    const previousHash = Block.genesisSecret;
-    const data = '';
-    const timestamp = Block.newTimestamp();
-    const hash = Block.calculateBlockHash(index, previousHash, timestamp, data);
+    const previousHash = '';
+    const data = 'GENESIS BLOCK';
 
-    const genesis = new Block(index, hash, previousHash, data, timestamp);
+    const genesis = new Block(index, previousHash, data, difficulty);
     return genesis;
   };
 
@@ -33,52 +27,38 @@ export default class Block {
 
   private constructor(
     index: number,
-    hash: string,
     previousHash: string,
     data: string,
-    timestamp: number,
+    difficulty: number,
   ) {
     this.index = index;
-    this.hash = hash;
-    this.previousHash = previousHash;
     this.data = data;
-    this.timestamp = timestamp;
+
+    this.header = new BlockHeader(previousHash, data, difficulty);
   }
 
-  calculateHash = () =>
-    Block.calculateBlockHash(
-      this.index,
-      this.previousHash,
-      this.timestamp,
-      this.data,
-    );
+  setHash = () => (this.hash = this.header.hash());
+
+  getDifficulty = (): number => this.header.difficulty;
+  getPreviousHash = (): string => this.header.previousHash;
 
   buildNext = (data: string): Block => {
     const nextIndex: number = this.index + 1;
-    const nextTimestamp: number = Block.newTimestamp();
-    const nextHash: string = Block.calculateBlockHash(
-      nextIndex,
-      this.hash,
-      nextTimestamp,
-      data,
-    );
 
     const nextBlock = new Block(
       nextIndex,
-      nextHash,
       this.hash,
       data,
-      nextTimestamp,
+      this.getDifficulty(),
     );
+    nextBlock.setHash();
     return nextBlock;
   };
 
   hasValidStructure = (): boolean => {
     if (typeof this.index !== 'number') return false;
     if (typeof this.hash !== 'string') return false;
-    if (typeof this.previousHash !== 'string') return false;
     if (typeof this.data !== 'string') return false;
-    if (typeof this.timestamp !== 'number') return false;
 
     return true;
   };
@@ -86,8 +66,8 @@ export default class Block {
   isValid = (previous: Block): boolean => {
     if (!this.hasValidStructure) return false;
     if (previous.index + 1 !== this.index) return false;
-    if (previous.hash !== this.previousHash) return false;
-    if (this.hash !== this.calculateHash()) return false;
+    if (previous.hash !== this.getPreviousHash()) return false;
+    if (this.hash !== this.setHash()) return false;
 
     return true;
   };

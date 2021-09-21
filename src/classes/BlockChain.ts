@@ -1,10 +1,12 @@
 import Block from './Block';
 
 export default class BlockChain {
+  public difficulty = 2;
+
   private chain: Block[];
 
   constructor() {
-    this.chain = [Block.buildGenesis()];
+    this.chain = [Block.buildGenesis(this.difficulty)];
   }
 
   getChain = (): Block[] => this.chain;
