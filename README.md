@@ -1,26 +1,60 @@
 # [Create React Mine]()
 
+<p align="center">
+  <img src=".github/">
+</p>
+
+## Table of Contents
+
+- [About](#about)
+- [Getting Started](#getting_started)
+- [Usage](#usage)
+- [Packages](#packages)
+- [Docs](#docs)
+- [Resources](#resources)
+
+## About <a name = "about"></a>
+
 A Proof of Work mining simulator made with Typescript and Next.js.
 Based on [Nomad Coder's implementation](https://mining-simulator.netlify.app/).
 
 - [Production App]()
 - [Figma](https://www.figma.com/file/d4ZQuLT7CVqr161wB1yAzX/Create-React-Mine?node-id=0%3A1)
 
-<p align="center">
-  <img src=".github/">
-</p>
+## Getting Started <a name = "getting_started"></a>
 
-## Getting Started
+### Prerequisites
 
-First, clone this repo and run the development server:
+- `node >= 14.0.0`
+
+### Installation
+
+1. Clone this repo locally and install the required packages:
+
+```bash
+$ git clone https://github.com/librity/repo_name.git
+$ cd repo_name
+$ yarn install
+```
+
+2. Start a dev server:
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open http://localhost:3000 on your web browser.
 
-## Documentation
+## Usage <a name = "usage"></a>
+
+Add notes about how to use the system.
+
+## Packages <a name = "packages"></a>
+
+- https://github.com/nvm-sh/nvm
+- https://github.com/brix/crypto-js
+
+## Docs <a name = "docs"></a>
 
 - [React.js](https://reactjs.org/docs/getting-started.html)
 - [Next.js](https://nextjs.org/docs) - learn about Next.js features and API.
@@ -29,6 +63,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [Vercel deployment](https://nextjs.org/docs/deployment)
 - [JavaScript Cookie](https://github.com/js-cookie/js-cookie)
 
-## Resources
+## Resources <a name = "resources"></a>
 
 - https://josipmisko.com/posts/how-to-update-npm-packages-in-4-easy-steps
+- https://muffinman.io/blog/nvm-updating-npm/
