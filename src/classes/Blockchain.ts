@@ -1,17 +1,18 @@
 import Block from './Block'
 
 export default class Blockchain {
-  public unminedBlock: Block
+  public nextBlock: Block
 
   private blocks: Block[]
 
   constructor() {
     this.blocks = [Block.buildGenesis()]
+    this.setNextBlock('')
   }
 
-  getDifficulty = (): number => this.unminedBlock.getDifficulty()
+  getDifficulty = (): number => this.nextBlock.getDifficulty()
   setDifficulty = (newDifficulty: number) =>
-    this.unminedBlock.setDifficulty(newDifficulty)
+    this.nextBlock.setDifficulty(newDifficulty)
   increaseDifficulty = () => {
     const newDifficulty = this.getDifficulty() + 1
 
@@ -27,24 +28,28 @@ export default class Blockchain {
   getBlockCount = (): number => this.blocks.length
   getLastBlock = (): Block => this.blocks[this.blocks.length - 1]
 
-  buildNext = (data: string): Block => {
+  createNextBlock = (data: string) => {
+    this.setNextBlock(data)
+    this.mineNextBlock()
+
+    this.saveNextBlock()
+  }
+
+  setNextBlock = (data: string) => (this.nextBlock = this.buildNextBlock(data))
+  buildNextBlock = (data: string): Block => {
     const previous = this.getLastBlock()
     const next = previous.buildNext(data)
 
     return next
   }
 
-  saveNext = (next: Block) => {
-    const isValid = next.isValid(this.getLastBlock())
-    if (!isValid) throw new Error("Next block isn't valid")
+  mineNextBlock = () => this.nextBlock.mine()
 
-    this.blocks.push(next)
-  }
+  isNextBlockValid = (): boolean => this.nextBlock.isValid(this.getLastBlock())
+  saveNextBlock = () => {
+    if (!this.isNextBlockValid()) throw new Error("Next block isn't valid")
 
-  createNext = (data: string) => {
-    this.unminedBlock = this.buildNext(data)
-    this.unminedBlock.mine()
-
-    this.saveNext(this.unminedBlock)
+    this.blocks.push(this.nextBlock)
+    this.setNextBlock('')
   }
 }

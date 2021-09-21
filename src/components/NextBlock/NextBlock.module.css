@@ -1,8 +1,9 @@
 .container {
-  background-color: var(--current-block-bg);
-  min-height: 50vh;
+  min-height: 60vh;
   width: 100vw;
 
   padding-top: 10rem;
   padding-bottom: 10rem;
+
+  background-color: var(--dark-blue-bg);
 }

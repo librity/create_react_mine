@@ -3,11 +3,10 @@
   flex-direction: column;
   align-items: left;
 
+  width: 45rem;
+
   padding: 2rem;
-  width: 40rem;
 
-  background-color: var(--mined-block-bg);
+  background-color: var(--white-bg);
   border-radius: 10px;
-
-  box-sizing: border-box;
 }

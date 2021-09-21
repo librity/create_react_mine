@@ -8,13 +8,14 @@
   --twitter-blue: #2aa9e0;
 
   --text: #666666;
+  --light-text: #d9f7f1;
   --text-highlight: #b3b9ff;
 
   --title: #2e384d;
 
-  --mined-block-bg: #f2f3f5;
-  --current-block-bg: #1f2937;
-  --blockchain-status-bg: #d1d5db;
+  --white-bg: #f2f3f5;
+  --dark-blue-bg: #27374e;
+  --light-blue-bg: #d3ddeb;
 }
 
 @media (max-width: 1080px) {

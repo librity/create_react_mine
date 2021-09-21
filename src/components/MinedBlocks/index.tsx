@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
-import Block from '../classes/Block'
+import Block from '../../classes/Block'
 
-import styles from '../styles/components/BlockchainStatus.module.css'
+import styles from './MinedBlocks.module.css'
 
-import { BlockchainContext } from '../contexts/BlockchainContext'
+import { BlockchainContext } from '../../contexts/BlockchainContext'
 import { MinedBlock } from './MinedBlock'
 
-export const BlockchainStatus = () => {
+export const MinedBlocks = () => {
   const { chain } = useContext(BlockchainContext)
 
   return (
