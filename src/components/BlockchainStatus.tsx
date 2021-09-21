@@ -1,9 +1,10 @@
-import { useContext } from 'react'
+import React, { useContext } from 'react'
 import Block from '../classes/Block'
 
 import styles from '../styles/components/BlockchainStatus.module.css'
 
 import { BlockchainContext } from '../contexts/BlockchainContext'
+import { MinedBlock } from './MinedBlock'
 
 export const BlockchainStatus = () => {
   const { chain } = useContext(BlockchainContext)
@@ -11,10 +12,7 @@ export const BlockchainStatus = () => {
   return (
     <section className={styles.container}>
       {chain.getBlocks().map((block: Block) => (
-        <div>
-          <span>{block.data}</span>
-          <span>{block.hash}</span>
-        </div>
+        <MinedBlock block={block} />
       ))}
     </section>
   )

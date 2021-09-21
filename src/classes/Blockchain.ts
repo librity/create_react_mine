@@ -1,7 +1,7 @@
 import Block from './Block'
 
 export default class Blockchain {
-  public next: Block
+  public unminedBlock: Block
 
   private blocks: Block[]
 
@@ -9,9 +9,9 @@ export default class Blockchain {
     this.blocks = [Block.buildGenesis()]
   }
 
-  getDifficulty = (): number => this.next.getDifficulty()
+  getDifficulty = (): number => this.unminedBlock.getDifficulty()
   setDifficulty = (newDifficulty: number) =>
-    this.next.setDifficulty(newDifficulty)
+    this.unminedBlock.setDifficulty(newDifficulty)
   increaseDifficulty = () => {
     const newDifficulty = this.getDifficulty() + 1
 
@@ -42,9 +42,9 @@ export default class Blockchain {
   }
 
   createNext = (data: string) => {
-    this.next = this.buildNext(data)
-    this.next.mine()
+    this.unminedBlock = this.buildNext(data)
+    this.unminedBlock.mine()
 
-    this.saveNext(this.next)
+    this.saveNext(this.unminedBlock)
   }
 }

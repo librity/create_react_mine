@@ -12,8 +12,7 @@
 
   --title: #2e384d;
 
-  --background: #f2f3f5;
-
+  --mined-block-bg: #f2f3f5;
   --current-block-bg: #1f2937;
   --blockchain-status-bg: #d1d5db;
 }
@@ -37,7 +36,6 @@
 }
 
 body {
-  background-attachment: var(--background);
   color: var(--text);
 }
 
@@ -45,7 +43,7 @@ body,
 input,
 textarea,
 button {
-  font: 400 1rem 'Inter', sans-serif;
+  font: 400 1rem 'Roboto', sans-serif;
 }
 
 button {

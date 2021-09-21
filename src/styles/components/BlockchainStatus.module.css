@@ -1,6 +1,6 @@
 .container {
-  background-color: var(--background);
-  /* background-color: rgb(209, 213, 219); */
+  background-color: var(--blockchain-status-bg);
+
   min-height: 50vh;
   width: 100vw;
 }

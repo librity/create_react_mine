@@ -1,5 +1,5 @@
 .container {
-  background-color: rgb(31, 41, 55);
+  background-color: var(--current-block-bg);
   min-height: 50vh;
   width: 100vw;
 

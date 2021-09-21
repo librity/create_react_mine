@@ -9,7 +9,7 @@ export const CurrentBlock = () => {
 
   return (
     <section className={styles.container}>
-      <h1>{chain.next}</h1>
+      <h1>{chain.unminedBlock}</h1>
     </section>
   )
 }
