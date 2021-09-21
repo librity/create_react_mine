@@ -64,7 +64,6 @@ Add notes about how to use the system.
 - [Create React App](https://create-react-app.dev/docs/getting-started)
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 - [Vercel deployment](https://nextjs.org/docs/deployment)
-- [JavaScript Cookie](https://github.com/js-cookie/js-cookie)
 
 ## Resources <a name = "resources"></a>
 

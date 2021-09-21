@@ -1,0 +1,6 @@
+.container {
+  background-color: var(--background);
+  /* background-color: rgb(209, 213, 219); */
+  min-height: 50vh;
+  width: 100vw;
+}

@@ -1,15 +1,21 @@
 :root {
   --white: #fff;
-  --background: #f2f3f5;
   --gray-line: #dcdde0;
-  --text: #666666;
-  --text-highlight: #b3b9ff;
-  --title: #2e384d;
   --red: #e83f5b;
   --green: #4cd62b;
   --blue: #5965e0;
   --dark-blue: #4953b8;
   --twitter-blue: #2aa9e0;
+
+  --text: #666666;
+  --text-highlight: #b3b9ff;
+
+  --title: #2e384d;
+
+  --background: #f2f3f5;
+
+  --current-block-bg: #1f2937;
+  --blockchain-status-bg: #d1d5db;
 }
 
 @media (max-width: 1080px) {

@@ -2,30 +2,24 @@ import Head from 'next/head'
 
 import styles from '../styles/pages/Home.module.css'
 
+import { BlockchainProvider } from '../contexts/BlockchainContext'
+
 import { CurrentBlock } from '../components/CurrentBlock'
-import { Blockchain } from '../components/Blockchain'
-import { useEffect } from 'react'
-import blockchainDemo from '../blockchainDemo'
+import { BlockchainStatus } from '../components/BlockchainStatus'
 
 const Home = () => {
-  useEffect(() => {
-    blockchainDemo()
-  }, [])
-
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Inicio | Move.it</title>
-      </Head>
+    <BlockchainProvider>
+      <div className={styles.container}>
+        <Head>
+          <title>Create React Mine</title>
+        </Head>
 
-      <section>
-        <CurrentBlock />
-      </section>
+          <CurrentBlock />
 
-      <section>
-        <Blockchain />
-      </section>
-    </div>
+          <BlockchainStatus />
+      </div>
+    </BlockchainProvider>
   )
 }
 

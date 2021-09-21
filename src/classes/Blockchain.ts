@@ -1,12 +1,12 @@
 import Block from './Block'
 
-export default class BlockChain {
+export default class Blockchain {
   public next: Block
 
-  private chain: Block[]
+  private blocks: Block[]
 
   constructor() {
-    this.chain = [Block.buildGenesis()]
+    this.blocks = [Block.buildGenesis()]
   }
 
   getDifficulty = (): number => this.next.getDifficulty()
@@ -23,9 +23,9 @@ export default class BlockChain {
     this.setDifficulty(newDifficulty)
   }
 
-  getChain = (): Block[] => this.chain
-  getBlockCount = (): number => this.chain.length
-  getLastBlock = (): Block => this.chain[this.chain.length - 1]
+  getBlocks = (): Block[] => this.blocks
+  getBlockCount = (): number => this.blocks.length
+  getLastBlock = (): Block => this.blocks[this.blocks.length - 1]
 
   buildNext = (data: string): Block => {
     const previous = this.getLastBlock()
@@ -38,7 +38,7 @@ export default class BlockChain {
     const isValid = next.isValid(this.getLastBlock())
     if (!isValid) throw new Error("Next block isn't valid")
 
-    this.chain.push(next)
+    this.blocks.push(next)
   }
 
   createNext = (data: string) => {
