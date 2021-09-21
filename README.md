@@ -17,6 +17,8 @@
 
 A Proof of Work mining simulator made with Typescript and Next.js.
 Based on [Nomad Coder's implementation](https://mining-simulator.netlify.app/).
+It uses the same Block Header structure
+[as Bitcoin](https://en.bitcoin.it/wiki/Block_hashing_algorithm).
 
 - [Production App]()
 - [Figma](https://www.figma.com/file/d4ZQuLT7CVqr161wB1yAzX/Create-React-Mine?node-id=0%3A1)
@@ -32,9 +34,9 @@ Based on [Nomad Coder's implementation](https://mining-simulator.netlify.app/).
 1. Clone this repo locally and install the required packages:
 
 ```bash
-$ git clone https://github.com/librity/repo_name.git
-$ cd repo_name
-$ yarn install
+$ git clone https://github.com/librity/create_react_mine.git
+$ cd create_react_mine
+$ npm install
 ```
 
 2. Start a dev server:
@@ -53,6 +55,7 @@ Add notes about how to use the system.
 
 - https://github.com/nvm-sh/nvm
 - https://github.com/brix/crypto-js
+- https://prettier.io/docs/en/configuration.html
 
 ## Docs <a name = "docs"></a>
 

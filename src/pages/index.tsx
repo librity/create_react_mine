@@ -1,9 +1,9 @@
-import { GetServerSideProps } from "next";
-import Head from "next/head";
+import { GetServerSideProps } from 'next'
+import Head from 'next/head'
 
-import styles from "../styles/pages/Home.module.css";
+import styles from '../styles/pages/Home.module.css'
 
-import { ExperienceBar } from "../components/ExperienceBar";
+import { ExperienceBar } from '../components/ExperienceBar'
 
 const Home = () => {
   return (
@@ -17,7 +17,7 @@ const Home = () => {
       <section></section>
       <section></section>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
