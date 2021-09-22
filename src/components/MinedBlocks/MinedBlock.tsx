@@ -1,4 +1,5 @@
 import Block from '../../classes/Block'
+import Time from '../../utils/Time'
 
 import styles from './MinedBlock.module.css'
 
@@ -13,6 +14,7 @@ export const MinedBlock = ({ block }: MinedBlockProps) => (
     <div>
       <div>Data: {block.data}</div>
       <div>Hash: {block.hash}</div>
+      <div>Created at: {Time.unixToHuman(block.header.timestamp)}</div>
     </div>
 
     <h4>HEADER</h4>

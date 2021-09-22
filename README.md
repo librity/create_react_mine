@@ -78,6 +78,8 @@ Add notes about how to use the system.
 - https://stackoverflow.com/questions/8353272/private-vs-protected-visibility-good-practice-concern
 - https://stackoverflow.com/questions/32647215/declaring-static-constants-in-es6-classes
 - https://stackoverflow.com/questions/34112577/javascript-for-loop-how-to-make-it-repeat-forever
+- https://www.delftstack.com/howto/javascript/javascript-convert-timestamp-to-date/
+- https://wesleygrimes.com/angular/2019/02/14/how-to-use-tslint-to-autoremove-all-unused-imports-in-a-typescript-project.html
 
 ### CSS
 

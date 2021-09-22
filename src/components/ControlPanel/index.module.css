@@ -4,11 +4,10 @@
   align-items: center;
   justify-content: center;
 
-  min-height: 60vh;
   width: 100vw;
 
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+  padding-top: 15rem;
+  padding-bottom: 15rem;
 
   background-color: var(--dark-blue-bg);
 }

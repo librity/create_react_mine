@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import styles from './index.module.css'
 
 import { BlockchainContext } from '../../../contexts/BlockchainContext'
+import Time from '../../../utils/Time'
 
 export const NextBlock = () => {
   const { chain } = useContext(BlockchainContext)
@@ -15,6 +16,7 @@ export const NextBlock = () => {
       <div>
         <div>Data: {nextBlock.data}</div>
         <div>Hash: {nextBlock.hash}</div>
+        <div>Created at: {Time.unixToHuman(nextBlock.header.timestamp)}</div>
       </div>
 
       <h4>HEADER</h4>
