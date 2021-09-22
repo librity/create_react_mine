@@ -89,7 +89,15 @@ Add notes about how to use the system.
 - https://stackoverflow.com/questions/32647215/declaring-static-constants-in-es6-classes
 - https://stackoverflow.com/questions/34112577/javascript-for-loop-how-to-make-it-repeat-forever
 - https://www.delftstack.com/howto/javascript/javascript-convert-timestamp-to-date/
+
+### Typescript
+
 - https://wesleygrimes.com/angular/2019/02/14/how-to-use-tslint-to-autoremove-all-unused-imports-in-a-typescript-project.html
+- https://nextjs.org/docs/advanced-features/module-path-aliases
+
+### React
+
+- https://reactjs.org/docs/lists-and-keys.html#keys
 
 ### CSS
 

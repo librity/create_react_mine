@@ -1,10 +1,10 @@
 import Head from 'next/head'
 
-import { BlockchainProvider } from '../contexts/BlockchainContext'
+import { BlockchainProvider } from '@/contexts/BlockchainContext'
 
-import { ControlPanel } from '../components/ControlPanel'
-import { MinedBlocks } from '../components/MinedBlocks'
-import { Footer } from '../components/Footer'
+import { ControlPanel } from '@/components/ControlPanel'
+import { MinedBlocks } from '@/components/MinedBlocks'
+import { Footer } from '@/components/Footer'
 
 const Home = () => {
   return (

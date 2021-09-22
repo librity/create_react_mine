@@ -1,13 +1,13 @@
 import { createContext, useState, ReactNode, useEffect } from 'react'
 
-import Block from '../classes/Block'
-import Blockchain from '../classes/Blockchain'
+import Block from '@/classes/Block'
+import Blockchain from '@/classes/Blockchain'
 
 interface BlockchainContextData {
   chain: Blockchain
   resetChain: () => void
 
-  // nextBlock: Block
+  nextBlock: Block
 }
 
 export const BlockchainContext = createContext({} as BlockchainContextData)
@@ -34,7 +34,7 @@ export const BlockchainProvider = ({ children, ...rest }) => {
         chain,
         resetChain,
 
-        // nextBlock,
+        nextBlock,
       }}
     >
       {children}

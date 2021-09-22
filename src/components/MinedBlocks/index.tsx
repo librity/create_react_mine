@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
-import Block from '../../classes/Block'
+import Block from '@/classes/Block'
 
-import { BlockchainContext } from '../../contexts/BlockchainContext'
+import { BlockchainContext } from '@/contexts/BlockchainContext'
+
 import { MinedBlock } from './MinedBlock'
 
 export const MinedBlocks = () => {
@@ -15,7 +16,7 @@ export const MinedBlocks = () => {
 
       <div className="grid grid-cols-3 w-full mt-20 gap-20 px-20">
         {chain.getBlocks().map((block: Block) => (
-          <MinedBlock block={block} />
+          <MinedBlock block={block} key={block.hash} />
         ))}
       </div>
     </section>
