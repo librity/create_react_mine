@@ -1,14 +1,14 @@
 import { useContext } from 'react'
 
-import { BlockchainContext } from '../../../contexts/BlockchainContext'
-import Time from '../../../utils/Time'
+import { BlockchainContext } from '../../contexts/BlockchainContext'
+import Time from '../../utils/Time'
 
 export const NextBlock = () => {
   const { chain } = useContext(BlockchainContext)
   const nextBlock = chain.nextBlock
 
   return (
-    <div >
+    <div className="ml-20">
       <h2>Block #{nextBlock.index}</h2>
 
       <div>

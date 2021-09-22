@@ -1,6 +1,6 @@
 export const Controls = () => {
   return (
-    <div>
+    <form className="ml-20">
       <div>
         <input type="text" />
       </div>
@@ -12,6 +12,6 @@ export const Controls = () => {
       <div>
         <input type="text" />
       </div>
-    </div>
+    </form>
   )
 }

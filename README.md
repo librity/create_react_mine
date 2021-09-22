@@ -42,10 +42,18 @@ $ npm install
 2. Start a dev server:
 
 ```bash
-npm run dev
+$ npm run dev
 ```
 
 3. Open http://localhost:3000 on your web browser.
+
+#### Format
+
+Format all source files with Prettier:
+
+```bash
+$ npm run format
+```
 
 ## Usage <a name = "usage"></a>
 

@@ -1,8 +1,6 @@
 import React, { useContext } from 'react'
 import Block from '../../classes/Block'
 
-import styles from './index.module.css'
-
 import { BlockchainContext } from '../../contexts/BlockchainContext'
 import { MinedBlock } from './MinedBlock'
 
@@ -10,10 +8,16 @@ export const MinedBlocks = () => {
   const { chain } = useContext(BlockchainContext)
 
   return (
-    <section className="flex items-center flex-col bg-gray-300 min-h-screen">
-      {chain.getBlocks().map((block: Block) => (
-        <MinedBlock block={block} />
-      ))}
+    <section className="flex items-center flex-col bg-gray-200 min-h-screen">
+      <h3 className="text-xl uppercase bg-white -mt-8 inline shadow-lg font-medium py-3 px-10 rounded-md">
+        Mined Blocks
+      </h3>
+
+      <div className="grid grid-cols-3 w-full mt-20 gap-20 px-20">
+        {chain.getBlocks().map((block: Block) => (
+          <MinedBlock block={block} />
+        ))}
+      </div>
     </section>
   )
 }

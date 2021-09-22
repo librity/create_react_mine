@@ -1,5 +1,3 @@
-import styles from './index.module.css'
-
 export const Footer = () => {
   return (
     <section className="flex items-center flex-col bg-blue-800 p-2">
