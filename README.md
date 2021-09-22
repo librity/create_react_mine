@@ -1,4 +1,4 @@
-# [Create React Mine]()
+# [Create React Mine](https://create-react-mine.vercel.app/)
 
 <p align="center">
   <img src=".github/">
@@ -20,7 +20,7 @@ Based on [Nomad Coder's implementation](https://mining-simulator.netlify.app/).
 It uses the same Block Header structure
 [as Bitcoin](https://en.bitcoin.it/wiki/Block_hashing_algorithm).
 
-- [Production App]()
+- [Production App](https://create-react-mine.vercel.app/)
 - [Figma](https://www.figma.com/file/d4ZQuLT7CVqr161wB1yAzX/Create-React-Mine?node-id=0%3A1)
 
 ## Getting Started <a name = "getting_started"></a>
@@ -78,6 +78,10 @@ Add notes about how to use the system.
 - https://stackoverflow.com/questions/8353272/private-vs-protected-visibility-good-practice-concern
 - https://stackoverflow.com/questions/32647215/declaring-static-constants-in-es6-classes
 - https://stackoverflow.com/questions/34112577/javascript-for-loop-how-to-make-it-repeat-forever
+
+### CSS
+
+- https://flexbox.malven.co/
 
 ### Bitcoin
 

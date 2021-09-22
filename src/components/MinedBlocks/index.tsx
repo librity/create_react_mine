@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import Block from '../../classes/Block'
 
-import styles from './MinedBlocks.module.css'
+import styles from './index.module.css'
 
 import { BlockchainContext } from '../../contexts/BlockchainContext'
 import { MinedBlock } from './MinedBlock'

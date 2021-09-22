@@ -6,7 +6,8 @@
   height: 5vh;
   width: 100vw;
 
-  padding: 0.6rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
 
   background-color: var(--dark-blue-bg);
   color: var(--light-text);

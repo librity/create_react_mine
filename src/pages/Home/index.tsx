@@ -1,10 +1,10 @@
 import Head from 'next/head'
 
-import styles from './Home.module.css'
+import styles from './index.module.css'
 
 import { BlockchainProvider } from '../../contexts/BlockchainContext'
 
-import { NextBlock } from '../../components/NextBlock'
+import { ControlPanel } from '../../components/ControlPanel'
 import { MinedBlocks } from '../../components/MinedBlocks'
 import { Footer } from '../../components/Footer'
 
@@ -16,7 +16,7 @@ const Home = () => {
           <title>Create React Mine</title>
         </Head>
 
-        {/* <NextBlock /> */}
+        <ControlPanel />
 
         <MinedBlocks />
 
