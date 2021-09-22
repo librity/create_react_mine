@@ -1,7 +1,5 @@
 import { useContext } from 'react'
 
-import styles from './index.module.css'
-
 import { BlockchainContext } from '../../../contexts/BlockchainContext'
 import Time from '../../../utils/Time'
 
@@ -10,7 +8,7 @@ export const NextBlock = () => {
   const nextBlock = chain.nextBlock
 
   return (
-    <div className={styles.container}>
+    <div >
       <h2>Block #{nextBlock.index}</h2>
 
       <div>

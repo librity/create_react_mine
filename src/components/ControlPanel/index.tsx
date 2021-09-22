@@ -4,13 +4,18 @@ import styles from './index.module.css'
 
 import { BlockchainContext } from '../../contexts/BlockchainContext'
 
-import { Controls } from './Controls'
-import { NextBlock } from './NextBlock'
+import { Logo } from './Left/Logo'
+import { Controls } from './Left/Controls'
+import { NextBlock } from './Right/NextBlock'
 
 export const ControlPanel = () => {
   return (
-    <section className={styles.container}>
-      <Controls />
+    <section className="bg-blue-800 flex justify-center items-center py-40 w-full">
+      <div>
+        <Logo />
+
+        <Controls />
+      </div>
 
       <NextBlock />
     </section>

@@ -56,6 +56,7 @@ Add notes about how to use the system.
 - https://github.com/nvm-sh/nvm
 - https://github.com/brix/crypto-js
 - https://prettier.io/docs/en/configuration.html
+- https://github.com/tailwindlabs/tailwindcss
 
 ## Docs <a name = "docs"></a>
 
@@ -64,6 +65,7 @@ Add notes about how to use the system.
 - [Create React App](https://create-react-app.dev/docs/getting-started)
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 - [Vercel deployment](https://nextjs.org/docs/deployment)
+- https://tailwindcss.com/docs/guides/nextjs
 
 ## Resources <a name = "resources"></a>
 
@@ -84,6 +86,16 @@ Add notes about how to use the system.
 ### CSS
 
 - https://flexbox.malven.co/
+- https://webdesign.tutsplus.com/tutorials/a-comprehensive-guide-to-flexbox-sizing--cms-31948
+- https://stackoverflow.com/questions/37300614/how-to-adapt-a-flex-divs-width-to-content
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax
+
+### CSS Frameworks
+
+- https://github.com/tailwindlabs/tailwindcss
+- https://github.com/mui-org/material-ui-x
+- https://github.com/system-ui/theme-ui
+- https://github.com/twbs/bootstrap
 
 ### Bitcoin
 

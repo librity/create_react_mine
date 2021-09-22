@@ -10,7 +10,7 @@ export const MinedBlocks = () => {
   const { chain } = useContext(BlockchainContext)
 
   return (
-    <section className={styles.container}>
+    <section className="flex items-center flex-col bg-gray-300 min-h-screen">
       {chain.getBlocks().map((block: Block) => (
         <MinedBlock block={block} />
       ))}

@@ -8,7 +8,7 @@ interface MinedBlockProps {
 }
 
 export const MinedBlock = ({ block }: MinedBlockProps) => (
-  <div className={styles.container}>
+  <div >
     <h2>Block #{block.index}</h2>
 
     <div>
