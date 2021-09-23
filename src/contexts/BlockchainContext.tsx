@@ -1,13 +1,23 @@
-import { createContext, useState, ReactNode, useEffect } from 'react'
+import {
+  createContext,
+  useState,
+  ReactNode,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+} from 'react'
 
-import Block from '@/classes/Block'
 import Blockchain from '@/classes/Blockchain'
+import Block from '@/classes/Block'
 
 interface BlockchainContextData {
-  chain: Blockchain
+  chain: Block[]
   resetChain: () => void
 
   nextBlock: Block
+  setData: (data: string) => void
+  setDifficulty: (difficulty: number) => void
+  setNonce: (nonce: number) => void
 }
 
 export const BlockchainContext = createContext({} as BlockchainContextData)
@@ -23,10 +33,61 @@ export const BlockchainProvider = ({ children, ...rest }) => {
     // new Audio('/notification_5.mp3').play()
   }, [])
 
-  const [chain, setChain] = useState(new Blockchain())
-  const [nextBlock, setNextBlock] = useState(chain.nextBlock)
+  const [chain, setChain] = useState<Block[]>([Block.buildGenesis()])
+  const [nextBlock, setNextBlock] = useState(
+    new Block(1, '', chain[0].hash, chain[0].header.difficulty),
+  )
 
-  const resetChain = () => setChain(new Blockchain())
+  const resetChain = () => {
+    setChain([Block.buildGenesis()])
+    setNextBlock(
+      new Block(
+        1,
+        '',
+        chain[0].hash,
+        chain[0].header.difficulty,
+      ),
+    )
+  }
+
+  const setData = (data: string) => {
+    setNextBlock((oldBlock) => {
+      return new Block(
+        oldBlock.index,
+        data,
+        oldBlock.header.previousHash,
+        oldBlock.header.difficulty,
+        oldBlock.header.nonce,
+        oldBlock.header.timestamp,
+      )
+    })
+  }
+
+  const setDifficulty = (difficulty: number) => {
+    setNextBlock((oldBlock) => {
+      return new Block(
+        oldBlock.index,
+        oldBlock.data,
+        oldBlock.header.previousHash,
+        difficulty,
+        oldBlock.header.nonce,
+        oldBlock.header.timestamp,
+      )
+    })
+  }
+
+  const setNonce = (nonce: number) => {
+    setNextBlock((oldBlock) => {
+      return new Block(
+        oldBlock.index,
+        oldBlock.data,
+        oldBlock.header.previousHash,
+        oldBlock.header.difficulty,
+        nonce,
+        oldBlock.header.timestamp,
+      )
+    })
+  }
 
   return (
     <BlockchainContext.Provider
@@ -35,6 +96,9 @@ export const BlockchainProvider = ({ children, ...rest }) => {
         resetChain,
 
         nextBlock,
+        setData,
+        setDifficulty,
+        setNonce,
       }}
     >
       {children}

@@ -18,6 +18,8 @@
       "@/classes/*": ["classes/*"],
       "@/components/*": ["components/*"],
       "@/contexts/*": ["contexts/*"],
+      "@/demos/*": ["demos/*"],
+      "@/interfaces/*": ["interfaces/*"],
       "@/styles/*": ["styles/*"],
       "@/utils/*": ["utils/*"]
     }

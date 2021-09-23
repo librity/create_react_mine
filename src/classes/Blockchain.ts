@@ -7,7 +7,6 @@ export default class Blockchain {
 
   constructor() {
     this.blocks = [Block.buildGenesis()]
-    this.setNextBlock('')
   }
 
   getDifficulty = (): number => this.nextBlock.getDifficulty()

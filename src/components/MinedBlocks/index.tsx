@@ -15,7 +15,7 @@ export const MinedBlocks = () => {
       </h3>
 
       <div className="grid grid-cols-3 w-full mt-20 gap-20 px-20">
-        {chain.getBlocks().map((block: Block) => (
+        {chain.map((block: Block) => (
           <MinedBlock block={block} key={block.hash} />
         ))}
       </div>

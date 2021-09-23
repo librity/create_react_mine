@@ -1,3 +1,4 @@
+import Timestamp from '@/utils/Time'
 import Crypto from '../utils/Crypto'
 import BlockHeader from './BlockHeader'
 
@@ -14,21 +15,29 @@ export default class Block {
     const previousHash = ''
     const data = 'GENESIS BLOCK'
 
-    const genesis = new Block(index, previousHash, data, BASE_DIFFICULTY)
+    const genesis = new Block(index, data, previousHash, BASE_DIFFICULTY)
     genesis.mine()
     return genesis
   }
 
-  private constructor(
+  constructor(
     index: number,
-    previousHash: string,
     data: string,
+    previousHash: string,
     difficulty: number,
+    nonce = 0,
+    timestamp = Timestamp.now(),
   ) {
     this.index = index
     this.data = data
 
-    this.header = new BlockHeader(previousHash, this.hashData(), difficulty)
+    this.header = new BlockHeader(
+      previousHash,
+      this.hashData(),
+      difficulty,
+      nonce,
+      timestamp,
+    )
     this.setHash()
   }
 
@@ -51,8 +60,8 @@ export default class Block {
 
     const nextBlock = new Block(
       nextIndex,
-      this.hash,
       data,
+      this.hash,
       this.getDifficulty(),
     )
     return nextBlock

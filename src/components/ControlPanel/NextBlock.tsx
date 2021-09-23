@@ -10,7 +10,7 @@ export const NextBlock = () => {
 
   return (
     <div className="ml-20 overflow-ellipsis bg-white p-5 shadow-lg rounded-lg break-all">
-      <h3 className="text-center text-2xl mb-5 font-medium underline">
+      <h3 className="text-center text-2xl mb-5 font-medium">
         Block #{nextBlock.index}
       </h3>
 

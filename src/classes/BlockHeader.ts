@@ -6,13 +6,20 @@ export default class BlockHeader {
   public dataHash: string
   public difficulty: number
   public timestamp: number
-  public nonce = 0
+  public nonce: number
 
-  constructor(previousHash: string, dataHash: string, difficulty: number) {
+  constructor(
+    previousHash: string,
+    dataHash: string,
+    difficulty: number,
+    nonce: number,
+    timestamp: number,
+  ) {
     this.previousHash = previousHash
     this.dataHash = dataHash
-    this.timestamp = Timestamp.now()
     this.difficulty = difficulty
+    this.timestamp = timestamp
+    this.nonce = nonce
   }
 
   hash = (): string => Crypto.hashInstance(this)
