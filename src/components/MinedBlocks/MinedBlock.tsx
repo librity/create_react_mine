@@ -1,4 +1,4 @@
-import Block from '@/classes/Block'
+import Block from '@/interfaces/Block'
 import Time from '@/utils/Time'
 
 import { Divider } from '@/components/misc/Divider'

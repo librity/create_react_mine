@@ -1,7 +1,11 @@
 import CryptoJS from 'crypto-js'
 
+const HASH_LENGTH = 64
+
 export default class Crypto {
-  static hashInstance = (instance: Object): string => {
+  static hashLength = () => HASH_LENGTH
+
+  static hashObject = (instance: Object): string => {
     const instanceJSON = JSON.stringify(instance)
 
     return Crypto.hashString(instanceJSON)

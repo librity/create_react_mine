@@ -1,153 +1,92 @@
-import { useContext, useMemo } from 'react'
+import { useContext } from 'react'
+
+import Crypto from '@/utils/Crypto'
 
 import { BlockchainContext } from '@/contexts/BlockchainContext'
 
-export const Controls = () => {
-  const { resetChain, setData, setDifficulty, setNonce } =
-    useContext(BlockchainContext)
+import { Input } from './Input'
+import { Button } from './Button'
 
-  const handleDataChange = (e) => {
+export const Controls = () => {
+  const {
+    resetChain,
+
+    setData,
+    setDifficulty,
+    setNonce,
+
+    nextBlockIsMined,
+  } = useContext(BlockchainContext)
+
+  const handleDataChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData(e.target.value)
   }
 
-  const handleDifficultyChange = (e) => {
-    const newDiff = Number.parseInt(e.target.value)
+  const handleDifficultyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value == '') return
 
-    setDifficulty(newDiff)
+    const newDifficulty = Number.parseInt(e.target.value)
+    setDifficulty(newDifficulty)
   }
 
-  const handleNonceChange = (e) => {
-    const newDiff = Number.parseInt(e.target.value)
+  const handleNonceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value == '') return
 
-    setNonce(newDiff)
+    const newNonce = Number.parseInt(e.target.value)
+    setNonce(newNonce)
   }
 
   return (
     <div className="ml-20">
-      <input
+      <Input
         type="text"
         name="data"
         placeholder="Block Data 🪨"
-        className="
-      w-full
-      px-5
-      text-lg
-      py-3
-      border border-transparent
-      placeholder-gray-500
-      focus:ring-2
-      focus:ring-offset-2
-      focus:ring-offset-gray-800
-      focus:ring-white
-      focus:border-white
-      rounded-md"
         onChange={handleDataChange}
       />
 
       <div className="flex mt-2">
-        <input
+        <Input
           type="number"
           name="difficulty"
           min="1"
+          max="64"
+          placeholder={`Difficulty 💪 (max ${Crypto.hashLength()})`}
           onChange={handleDifficultyChange}
-          className="
-            w-full
-            px-5
-            text-lg
-            py-3
-            border border-transparent
-            placeholder-gray-500
-            focus:ring-2
-            focus:ring-offset-2
-            focus:ring-offset-gray-800
-            focus:ring-white
-            focus:border-white
-            rounded-md"
-          placeholder="Difficulty 💪"
         />
       </div>
 
       <div className="flex mt-2">
-        <input
+        <Input
           type="number"
           name="nonce"
           min="0"
           placeholder="Nonce 🪄"
           onChange={handleNonceChange}
-          className="
-        w-full
-        px-5
-        mr-2
-        text-lg
-        py-3
-        border border-transparent
-        placeholder-gray-500
-        focus:ring-2
-        focus:ring-offset-2
-        focus:ring-offset-gray-800
-        focus:ring-white
-        focus:border-white
-        rounded-md"
         />
 
-        <button
-          type="button"
-          className=" w-full text-white px-5 rounded-md block bg-purple-500"
-        >
+        <Button type="button" extraStyles={['bg-purple-500']}>
           Mine ⛏️
-        </button>
+        </Button>
       </div>
 
       <div className="flex mt-2">
-        <button
+        <Button
           type="button"
-          className="w-full
-        cursor-pointer
-        flex
-        items-center
-        justify-center
-        px-5
-        py-3
-        border
-        border-transparent
-        text-base
-        font-medium
-        rounded-md
-        text-white
-        bg-indigo-500
-        focus:outline-none
-        focus:ring-2
-        focus:ring-offset-2
-        focus:ring-offset-gray-800
-        focus:ring-indigo-500
-        opacity-50
-        cursor-not-allowed"
+          extraStyles={[
+            'bg-purple-500',
+            nextBlockIsMined ? '' : 'opacity-50 cursor-not-allowed',
+          ]}
+          disabled={!nextBlockIsMined}
         >
           Add Block 💎
-        </button>
+        </Button>
       </div>
 
       <div className="flex mt-2">
-        <button
-          type="button"
-          className="w-full
-        cursor-pointer
-        flex
-        items-center
-        justify-center
-        px-5
-        py-3
-        border
-        border-transparent
-        text-base
-        font-medium
-        rounded-md
-        text-white
-        bg-red-500"
-          onClick={resetChain}
-        >
+        <Button type="button" extraStyles={['bg-red-500']} onClick={resetChain}>
           Reset Blockchain 🗑️
-        </button>
+        </Button>
       </div>
     </div>
   )

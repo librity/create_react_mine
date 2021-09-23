@@ -98,6 +98,14 @@ Add notes about how to use the system.
 ### React
 
 - https://reactjs.org/docs/lists-and-keys.html#keys
+- https://stackoverflow.com/questions/40032592/typescript-workaround-for-rest-props-in-react
+- https://stackoverflow.com/questions/40676343/typescript-input-onchange-event-target-value
+- https://stackoverflow.com/questions/53688899/typescript-and-react-children-type
+- https://stackoverflow.com/questions/57424821/typescript-extend-react-component-props-for-styled-component-element
+
+### HTML
+
+- https://www.w3schools.com/Tags/att_button_disabled.asp
 
 ### CSS
 

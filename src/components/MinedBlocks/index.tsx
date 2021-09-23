@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
-import Block from '@/classes/Block'
+
+import Block from '@/interfaces/Block'
 
 import { BlockchainContext } from '@/contexts/BlockchainContext'
 

@@ -1,14 +1,16 @@
-import {
-  createContext,
-  useState,
-  ReactNode,
-  useEffect,
-  Dispatch,
-  SetStateAction,
-} from 'react'
+import { createContext, useState, useEffect } from 'react'
 
-import Blockchain from '@/classes/Blockchain'
-import Block from '@/classes/Block'
+import Crypto from '@/utils/Crypto'
+
+import Block from '@/interfaces/Block'
+
+import { buildGenesis, buildFromPrevious } from '@/blockchain/BuildBlocks'
+import {
+  updateData,
+  updateDifficulty,
+  updateNonce,
+} from '@/blockchain/UpdateBlocks'
+import { isMined } from '@/blockchain/MineBlocks'
 
 interface BlockchainContextData {
   chain: Block[]
@@ -18,6 +20,8 @@ interface BlockchainContextData {
   setData: (data: string) => void
   setDifficulty: (difficulty: number) => void
   setNonce: (nonce: number) => void
+
+  nextBlockIsMined: boolean
 }
 
 export const BlockchainContext = createContext({} as BlockchainContextData)
@@ -33,60 +37,37 @@ export const BlockchainProvider = ({ children, ...rest }) => {
     // new Audio('/notification_5.mp3').play()
   }, [])
 
-  const [chain, setChain] = useState<Block[]>([Block.buildGenesis()])
-  const [nextBlock, setNextBlock] = useState(
-    new Block(1, '', chain[0].hash, chain[0].header.difficulty),
+  const [chain, setChain] = useState<Block[]>([buildGenesis()])
+  const [nextBlock, setNextBlock] = useState<Block>(buildFromPrevious(chain[0]))
+  const [nextBlockIsMined, setNextBlockIsMined] = useState<boolean>(
+    isMined(nextBlock),
   )
 
   const resetChain = () => {
-    setChain([Block.buildGenesis()])
-    setNextBlock(
-      new Block(
-        1,
-        '',
-        chain[0].hash,
-        chain[0].header.difficulty,
-      ),
-    )
+    setChain([buildGenesis()])
+    setNextBlock(buildFromPrevious(chain[0]))
+    setNextBlockIsMined(isMined(nextBlock))
   }
 
   const setData = (data: string) => {
-    setNextBlock((oldBlock) => {
-      return new Block(
-        oldBlock.index,
-        data,
-        oldBlock.header.previousHash,
-        oldBlock.header.difficulty,
-        oldBlock.header.nonce,
-        oldBlock.header.timestamp,
-      )
-    })
+    setNextBlock((oldBlock) => updateData(oldBlock, data))
+    setNextBlockIsMined(isMined(nextBlock))
   }
 
   const setDifficulty = (difficulty: number) => {
-    setNextBlock((oldBlock) => {
-      return new Block(
-        oldBlock.index,
-        oldBlock.data,
-        oldBlock.header.previousHash,
-        difficulty,
-        oldBlock.header.nonce,
-        oldBlock.header.timestamp,
-      )
-    })
+    if (difficulty == NaN) return
+    if (difficulty < 1) return
+    if (difficulty > Crypto.hashLength()) return
+
+    setNextBlock((oldBlock) => updateDifficulty(oldBlock, difficulty))
+    setNextBlockIsMined(isMined(nextBlock))
   }
 
   const setNonce = (nonce: number) => {
-    setNextBlock((oldBlock) => {
-      return new Block(
-        oldBlock.index,
-        oldBlock.data,
-        oldBlock.header.previousHash,
-        oldBlock.header.difficulty,
-        nonce,
-        oldBlock.header.timestamp,
-      )
-    })
+    if (nonce == NaN) return
+
+    setNextBlock((oldBlock) => updateNonce(oldBlock, nonce))
+    setNextBlockIsMined(isMined(nextBlock))
   }
 
   return (
@@ -99,6 +80,8 @@ export const BlockchainProvider = ({ children, ...rest }) => {
         setData,
         setDifficulty,
         setNonce,
+
+        nextBlockIsMined,
       }}
     >
       {children}

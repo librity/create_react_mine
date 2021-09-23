@@ -15,11 +15,11 @@
     "jsx": "preserve",
     "baseUrl": "./src",
     "paths": {
-      "@/classes/*": ["classes/*"],
+      "@/blockchain/*": ["blockchain/*"],
       "@/components/*": ["components/*"],
       "@/contexts/*": ["contexts/*"],
-      "@/demos/*": ["demos/*"],
       "@/interfaces/*": ["interfaces/*"],
+      "@/pages/*": ["pages/*"],
       "@/styles/*": ["styles/*"],
       "@/utils/*": ["utils/*"]
     }
