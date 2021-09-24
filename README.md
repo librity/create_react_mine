@@ -118,6 +118,7 @@ It takes a while for any difficulty higher than 4.
 ### HTML
 
 - https://www.w3schools.com/Tags/att_button_disabled.asp
+- https://stackoverflow.com/questions/10042786/how-to-successfully-implement-ogimage-for-the-linkedin
 
 ### CSS
 

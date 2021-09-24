@@ -8,7 +8,7 @@ export default class MyDocument extends Document {
           <meta
             prefix="og: http://ogp.me/ns#"
             property="og:title"
-            content="Create React Mine!"
+            content="Create React Mine"
           />
           <meta
             prefix="og: http://ogp.me/ns#"
