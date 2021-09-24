@@ -6,15 +6,19 @@ import { BlockchainContext } from '@/contexts/BlockchainContext'
 
 import { Input } from './Input'
 import { Button } from './Button'
+import { toast } from 'react-toastify'
 
 export const Controls = () => {
   const {
     resetChain,
+    addNextBlock,
 
+    nextBlock,
     setData,
     setDifficulty,
     setNonce,
 
+    mineNextBlock,
     nextBlockIsMined,
   } = useContext(BlockchainContext)
 
@@ -34,6 +38,37 @@ export const Controls = () => {
 
     const newNonce = Number.parseInt(e.target.value)
     setNonce(newNonce)
+  }
+
+  const handleMineBlock = () => {
+    mineNextBlock()
+
+    new Audio('/notifications/mine_bloc.wav').play()
+    toast.success('Block successfully mined!')
+  }
+
+  const handleAddBlock = () => {
+    if (!nextBlockIsMined) {
+      new Audio('/notifications/error.mp3').play()
+      toast.error(
+        `Cannot add unmined block: Find the Nonce value that makes the hash start with '${'0'.repeat(
+          nextBlock.header.difficulty,
+        )}.'`,
+      )
+      return
+    }
+
+    addNextBlock()
+
+    new Audio('/notifications/add_block.wav').play()
+    toast.success('Block successfully added to the chain!')
+  }
+
+  const handleReset = () => {
+    resetChain()
+
+    new Audio('/notifications/reset_chain.mp3').play()
+    toast.info('Chain reset, all blocks removed.')
   }
 
   return (
@@ -65,7 +100,11 @@ export const Controls = () => {
           onChange={handleNonceChange}
         />
 
-        <Button type="button" extraStyles={['bg-purple-500']}>
+        <Button
+          type="button"
+          extraStyles={['bg-purple-500 ml-2']}
+          onClick={handleMineBlock}
+        >
           Mine ⛏️
         </Button>
       </div>
@@ -77,14 +116,19 @@ export const Controls = () => {
             'bg-purple-500',
             nextBlockIsMined ? '' : 'opacity-50 cursor-not-allowed',
           ]}
-          disabled={!nextBlockIsMined}
+          // disabled={!nextBlockIsMined}
+          onClick={handleAddBlock}
         >
           Add Block 💎
         </Button>
       </div>
 
       <div className="flex mt-2">
-        <Button type="button" extraStyles={['bg-red-500']} onClick={resetChain}>
+        <Button
+          type="button"
+          extraStyles={['bg-red-500']}
+          onClick={handleReset}
+        >
           Reset Blockchain 🗑️
         </Button>
       </div>

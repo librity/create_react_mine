@@ -65,6 +65,8 @@ Add notes about how to use the system.
 - https://github.com/brix/crypto-js
 - https://prettier.io/docs/en/configuration.html
 - https://github.com/tailwindlabs/tailwindcss
+- https://github.com/react-hook-form/react-hook-form
+- https://github.com/fkhadra/react-toastify
 
 ## Docs <a name = "docs"></a>
 
@@ -73,7 +75,7 @@ Add notes about how to use the system.
 - [Create React App](https://create-react-app.dev/docs/getting-started)
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 - [Vercel deployment](https://nextjs.org/docs/deployment)
-- https://tailwindcss.com/docs/guides/nextjs
+- [Tailwind CSS Framework](https://tailwindcss.com/docs/guides/nextjs)
 
 ## Resources <a name = "resources"></a>
 
@@ -94,6 +96,7 @@ Add notes about how to use the system.
 
 - https://wesleygrimes.com/angular/2019/02/14/how-to-use-tslint-to-autoremove-all-unused-imports-in-a-typescript-project.html
 - https://nextjs.org/docs/advanced-features/module-path-aliases
+- https://www.carlrippon.com/when-to-use-type-aliases-v-interfaces/
 
 ### React
 
@@ -102,6 +105,13 @@ Add notes about how to use the system.
 - https://stackoverflow.com/questions/40676343/typescript-input-onchange-event-target-value
 - https://stackoverflow.com/questions/53688899/typescript-and-react-children-type
 - https://stackoverflow.com/questions/57424821/typescript-extend-react-component-props-for-styled-component-element
+- https://stackoverflow.com/questions/8896327/jquery-wait-delay-1-second-without-executing-code
+- https://stackoverflow.com/questions/58812323/how-to-run-a-while-loop-in-a-react-component-while-this-state-x
+- https://stackoverflow.com/questions/65473043/how-to-break-a-loop-onclick-reactjs
+- https://stackoverflow.com/questions/53070970/infinite-loop-in-useeffect
+- https://dmitripavlutin.com/dont-overuse-react-usecallback/
+- https://openbase.com/categories/js/best-react-forms-libraries
+- https://reactjs.org/docs/forms.html
 
 ### HTML
 

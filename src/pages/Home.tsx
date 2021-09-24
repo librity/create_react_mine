@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import { BlockchainProvider } from '@/contexts/BlockchainContext'
 
@@ -19,6 +21,8 @@ const Home = () => {
         <MinedBlocks />
 
         <Footer />
+
+        <ToastContainer />
       </div>
     </BlockchainProvider>
   )

@@ -1,7 +1,4 @@
-type DefaultInputProps = React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
->
+import DefaultInputProps from '@/types/DefaultInputProps'
 
 interface InputProps extends DefaultInputProps {
   extraStyles?: string[]

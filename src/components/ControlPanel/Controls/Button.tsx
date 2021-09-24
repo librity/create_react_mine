@@ -1,7 +1,4 @@
-type DefaultButtonProps = React.DetailedHTMLProps<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
->
+import DefaultButtonProps from '@/types/DefaultButtonProps'
 
 interface ButtonProps extends DefaultButtonProps {
   extraStyles?: string[]

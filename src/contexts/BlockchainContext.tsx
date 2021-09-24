@@ -10,10 +10,11 @@ import {
   updateDifficulty,
   updateNonce,
 } from '@/blockchain/UpdateBlocks'
-import { isMined } from '@/blockchain/MineBlocks'
+import { mine, isMined } from '@/blockchain/MineBlocks'
 
 interface BlockchainContextData {
   chain: Block[]
+  addNextBlock: () => void
   resetChain: () => void
 
   nextBlock: Block
@@ -21,6 +22,7 @@ interface BlockchainContextData {
   setDifficulty: (difficulty: number) => void
   setNonce: (nonce: number) => void
 
+  mineNextBlock: () => void
   nextBlockIsMined: boolean
 }
 
@@ -29,12 +31,6 @@ export const BlockchainContext = createContext({} as BlockchainContextData)
 export const BlockchainProvider = ({ children, ...rest }) => {
   useEffect(() => {
     Notification.requestPermission()
-
-    // new Audio('/notification_1.wav').play()
-    // new Audio('/notification_2.wav').play()
-    // new Audio('/notification_3.wav').play()
-    // new Audio('/notification_4.wav').play()
-    // new Audio('/notification_5.mp3').play()
   }, [])
 
   const [chain, setChain] = useState<Block[]>([buildGenesis()])
@@ -43,15 +39,17 @@ export const BlockchainProvider = ({ children, ...rest }) => {
     isMined(nextBlock),
   )
 
+  useEffect(() => {
+    setNextBlockIsMined(isMined(nextBlock))
+  }, [nextBlock])
+
   const resetChain = () => {
     setChain([buildGenesis()])
     setNextBlock(buildFromPrevious(chain[0]))
-    setNextBlockIsMined(isMined(nextBlock))
   }
 
   const setData = (data: string) => {
     setNextBlock((oldBlock) => updateData(oldBlock, data))
-    setNextBlockIsMined(isMined(nextBlock))
   }
 
   const setDifficulty = (difficulty: number) => {
@@ -60,20 +58,31 @@ export const BlockchainProvider = ({ children, ...rest }) => {
     if (difficulty > Crypto.hashLength()) return
 
     setNextBlock((oldBlock) => updateDifficulty(oldBlock, difficulty))
-    setNextBlockIsMined(isMined(nextBlock))
   }
 
   const setNonce = (nonce: number) => {
     if (nonce == NaN) return
 
     setNextBlock((oldBlock) => updateNonce(oldBlock, nonce))
-    setNextBlockIsMined(isMined(nextBlock))
+  }
+
+  const mineNextBlock = () => {
+    setNextBlock((oldBlock) => mine(oldBlock))
+  }
+
+  const addNextBlock = () => {
+    if (!isMined(nextBlock)) return
+
+    const newNextBlock = buildFromPrevious(nextBlock)
+    setChain((oldChain) => [...oldChain, nextBlock])
+    setNextBlock(newNextBlock)
   }
 
   return (
     <BlockchainContext.Provider
       value={{
         chain,
+        addNextBlock,
         resetChain,
 
         nextBlock,
@@ -81,6 +90,7 @@ export const BlockchainProvider = ({ children, ...rest }) => {
         setDifficulty,
         setNonce,
 
+        mineNextBlock,
         nextBlockIsMined,
       }}
     >
