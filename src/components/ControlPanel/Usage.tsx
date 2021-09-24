@@ -13,16 +13,16 @@ export const Usage = () => {
           >
             cryptographic hash functions
           </a>
-          . Each block generates its own hash from the data it contains, the
-          previous block's hash and other parameters like its timestamp,
+          . Each block is identified by a hash made from the data it contains,
+          the previous block's hash and other parameters like a timestamp,
           difficulty and nonce.
         </p>
 
         <p className="mt-5">
-          The difficulty (or target) represents the amount of zeros that a
-          block's hash needs to start with so it can be added to the blockchain.
-          To mine a block we increment the value of the nonce until we generate
-          a hash that satisfies the difficulty requirements of the blockchain.
+          The difficulty (or target) represents how many zeros a block's hash
+          needs to start with so it can be added to the blockchain. To mine a
+          block we increment the value of the nonce until we generate a hash
+          that satisfies the difficulty requirements of the blockchain.
         </p>
 
         <p className="mt-5">
@@ -49,7 +49,14 @@ export const Usage = () => {
           . You can manually mine the block by increasing the nonce and checking
           if it satisfies the difficulty, or you can mine it automatically and
           add it to the chain. Any difficulty over 4 will lag and slow down your
-          web browser.
+          web browser. For some perspective, the current difficulty of Bitcoin
+          <a
+            href="https://www.blockchain.com/btc/block/00000000000000000001c132ee475b47b64bccbfeb15dcf7dc0a1609d701b220"
+            className="underline text-yellow-100"
+          >
+            is about 20
+          </a>
+          , and people usually mine it with specialized hardware.
         </p>
       </div>
     </details>
