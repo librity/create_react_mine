@@ -49,7 +49,7 @@ export const Usage = () => {
           . You can manually mine the block by increasing the nonce and checking
           if it satisfies the difficulty, or you can mine it automatically and
           add it to the chain. Any difficulty over 4 will lag and slow down your
-          web browser. For some perspective, the current difficulty of Bitcoin
+          web browser. For some perspective, the current difficulty of Bitcoin{' '}
           <a
             href="https://www.blockchain.com/btc/block/00000000000000000001c132ee475b47b64bccbfeb15dcf7dc0a1609d701b220"
             className="underline text-yellow-100"
