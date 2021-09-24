@@ -1,7 +1,7 @@
 # [Create React Mine](https://create-react-mine.vercel.app/)
 
 <p align="center">
-  <img src=".github/">
+  <img src=".github/usage.png">
 </p>
 
 ## Table of Contents
@@ -57,7 +57,9 @@ $ npm run format
 
 ## Usage <a name = "usage"></a>
 
-Add notes about how to use the system.
+You can change the block's `data`, `difficulty` and `nonce`.
+You can also mine it automatically.
+It takes a while for any difficulty higher than 4.
 
 ## Packages <a name = "packages"></a>
 
