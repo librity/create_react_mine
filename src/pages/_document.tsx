@@ -5,6 +5,27 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta
+            prefix="og: http://ogp.me/ns#"
+            property="og:title"
+            content="Create React Mine!"
+          />
+          <meta
+            prefix="og: http://ogp.me/ns#"
+            property="og:type"
+            content="A blockchain and Proof of Work mining simulator for the brave"
+          />
+          <meta
+            prefix="og: http://ogp.me/ns#"
+            property="og:image"
+            content="https://create-react-mine.vercel.app/usage.png"
+          />
+          <meta
+            prefix="og: http://ogp.me/ns#"
+            property="og:url"
+            content="https://create-react-mine.vercel.app/"
+          />
+
           <link rel="shortcut icon" href="favicon.ico" type="image/ico" />
 
           <link rel="preconnect" href="https://fonts.gstatic.com" />
