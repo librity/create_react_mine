@@ -10,7 +10,7 @@ export const MinedBlocks = () => {
   const { chain } = useContext(BlockchainContext)
 
   return (
-    <section className="flex items-center flex-col bg-gray-200 min-h-screen">
+    <section className="flex items-center flex-col bg-gray-200 min-h-screen pb-20">
       <h3 className="text-xl uppercase bg-white -mt-8 inline shadow-lg font-medium py-3 px-10 rounded-md">
         Mined Blocks
       </h3>

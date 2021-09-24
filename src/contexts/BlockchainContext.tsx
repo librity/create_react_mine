@@ -29,10 +29,6 @@ interface BlockchainContextData {
 export const BlockchainContext = createContext({} as BlockchainContextData)
 
 export const BlockchainProvider = ({ children, ...rest }) => {
-  useEffect(() => {
-    Notification.requestPermission()
-  }, [])
-
   const [chain, setChain] = useState<Block[]>([buildGenesis()])
   const [nextBlock, setNextBlock] = useState<Block>(buildFromPrevious(chain[0]))
   const [nextBlockIsMined, setNextBlockIsMined] = useState<boolean>(
