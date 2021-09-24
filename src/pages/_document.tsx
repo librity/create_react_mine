@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
           <meta
             prefix="og: http://ogp.me/ns#"
             property="og:image"
-            content="https://create-react-mine.vercel.app/usage.png"
+            content="https://create-react-mine.vercel.app/preview.png"
           />
           <meta
             prefix="og: http://ogp.me/ns#"
