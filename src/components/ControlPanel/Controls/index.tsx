@@ -67,7 +67,7 @@ export const Controls = () => {
   const handleReset = () => {
     resetChain()
 
-    new Audio('/notifications/reset_chain.mp3').play()
+    new Audio('/notifications/reset_chain_2.mp3').play()
     toast.info('Chain reset, all blocks removed.')
   }
 
