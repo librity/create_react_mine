@@ -2,7 +2,7 @@ const OGTags = () => {
   return (
     <>
       <meta property="og:locale" content="en_US" />
-      <meta property="og:type" content="website " />
+      <meta property="og:type" content="website" />
       <meta property="og:title" content="Create React Mine!" />
       <meta
         property="og:description"
