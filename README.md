@@ -118,7 +118,6 @@ It takes a while for any difficulty higher than 4.
 ### HTML
 
 - https://www.w3schools.com/Tags/att_button_disabled.asp
-- https://stackoverflow.com/questions/10042786/how-to-successfully-implement-ogimage-for-the-linkedin
 
 ### CSS
 
@@ -137,3 +136,11 @@ It takes a while for any difficulty higher than 4.
 ### Bitcoin
 
 - https://en.bitcoin.it/wiki/Block_hashing_algorithm
+
+### Open Graph Meta Tags
+
+- https://stackoverflow.com/questions/10042786/how-to-successfully-implement-ogimage-for-the-linkedin
+- https://ahrefs.com/blog/open-graph-meta-tags/
+- https://www.linkedin.com/post-inspector/inspect/https:%2F%2Fcreate-react-mine.vercel.app%2F
+- https://www.linkedin.com/pulse/how-clear-linkedin-link-preview-cache-ananda-kannan-p/
+- https://kinsta.com/blog/linkedin-debugger/

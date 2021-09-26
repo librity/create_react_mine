@@ -1,30 +1,13 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
+import OGTags from './OGTags'
+
 export default class MyDocument extends Document {
   render() {
     return (
       <Html>
         <Head>
-          <meta
-            prefix="og: http://ogp.me/ns#"
-            property="og:title"
-            content="Create React Mine"
-          />
-          <meta
-            prefix="og: http://ogp.me/ns#"
-            property="og:type"
-            content="A blockchain and Proof of Work mining simulator for the brave"
-          />
-          <meta
-            prefix="og: http://ogp.me/ns#"
-            property="og:image"
-            content="https://create-react-mine.vercel.app/preview.png"
-          />
-          <meta
-            prefix="og: http://ogp.me/ns#"
-            property="og:url"
-            content="https://create-react-mine.vercel.app/"
-          />
+          <OGTags />
 
           <link rel="shortcut icon" href="favicon.ico" type="image/ico" />
 
