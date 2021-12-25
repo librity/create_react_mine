@@ -18,7 +18,7 @@ const Home = () => {
     <BlockchainProvider>
       <div>
         <Head>
-          <title>Create React Mine</title>
+          <title>Create React Mine!</title>
         </Head>
 
         <ControlPanel />
