@@ -20,6 +20,8 @@ const OGTags = () => {
       />
       <meta property="og:image:width" content="2000" />
       <meta property="og:image:height" content="1600" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="theme-color" content="#1e40af" />
 
       <meta name="author" content="@librity" />
     </>
