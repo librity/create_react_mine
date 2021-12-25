@@ -1,13 +1,17 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-import OGTags from './OGTags'
+import Default from './tags/Default'
+import OpenGraph from './tags/OpenGraph'
+import Twitter from './tags/Twitter'
 
 export default class MyDocument extends Document {
   render() {
     return (
       <Html>
         <Head>
-          <OGTags />
+          <Default />
+          <OpenGraph />
+          <Twitter />
 
           <link rel="shortcut icon" href="favicon.ico" type="image/ico" />
 
